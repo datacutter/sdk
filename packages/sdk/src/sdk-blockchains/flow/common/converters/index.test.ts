@@ -178,6 +178,7 @@ describe("Test FLOW converter functions", () => {
 	test("toFlowParts function, should convert union address to flow address", () => {
 		const test1 = toFlowParts([{ account: toUnionAddress(`FLOW:${FLOW_ZERO_ADDRESS}`), value: 500 }])
 		expect(isFlowAddress(test1[0].account)).toBeTruthy()
+		expect(test1[0].value).toEqual("0.05")
 	})
 	test("toFlowParts function, should throw error, invalid union address", () => {
 		const test1 = () => toFlowParts([{ account: toUnionAddress("FLOW_ZERO_ADDRESS"), value: 500 }])
